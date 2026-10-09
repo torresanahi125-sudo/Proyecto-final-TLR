@@ -1,163 +1,178 @@
-
-/* Estilos Generales y Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  font-family: sans-serif;
-  color: #333;
-  min-height: 100vh;
-}
-
-header {
-  min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.app-container {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--bg-card);
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+  border: 2px solid var(--border-color);
 }
 
 h1 {
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-main);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 2px solid var(--border-color);
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 0 var(--border-color);
 }
 
-/* Formulario Principal */
-form {
-  min-height: 10vh;
+.controls-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
-.input-container {
+.todo-form {
   display: flex;
-  align-items: center;
-  background: white;
-  padding: 0 12px;
-  border-radius: 5px 0 0 5px;
-  height: 2.5rem;
+  gap: 10px;
 }
 
-.input-icon {
-  color: #fda085;
+.todo-form input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 50px;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-input);
+  color: var(--text-main);
   font-size: 1rem;
-}
-
-form input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: none;
-  background: white;
   outline: none;
-  width: 15rem;
-  color: #333333 !important; /* CORRECCIÓN: Fuerza el texto escrito a color oscuro */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
 }
 
-form button {
-  color: #fda085;
-  background: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 0 5px 5px 0;
-  margin-right: 1.5rem;
-  font-weight: bold;
-  height: 2.5rem;
-  padding: 0 1rem;
-  border: none;
-  font-size: 1rem;
+.todo-form input::placeholder {
+  color: var(--text-muted);
 }
 
-form button:hover {
-  background: #fda085;
+.todo-form input:focus {
+  border-color: #b5179e;
+  box-shadow: 0 0 0 3px rgba(181, 23, 158, 0.15);
+}
+
+.todo-form button {
+  width: 50px;
+  height: 50px;
+  background-color: var(--border-color);
   color: white;
-}
-
-/* Contenedor del Selector */
-.select-container {
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 5px;
-  height: 2.5rem;
-}
-
-.filter-todo {
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
   cursor: pointer;
-  width: 10rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #333333 !important; /* CORRECCIÓN: Fuerza el texto del selector a color oscuro */
-}
-
-/* CORRECCIÓN: Fuerza a que las opciones del menú desplegable se lean siempre oscuras */
-.filter-todo option {
-  color: #333333 !important;
-  background-color: white !important;
-}
-
-/* Contenedor de la Lista */
-.todo-container {
+  font-size: 1.4rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, background-color 0.2s;
+}
+
+.todo-form button:hover {
+  background-color: #334155;
+  transform: scale(1.05);
+}
+
+.select-container select {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .todo-list {
-  min-width: 30%;
-  list-style: none;
-}
-
-/* Tareas Individuales */
-.todo {
-  margin: 0.5rem;
-  background: white;
-  color: black;
-  font-size: 1.2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.5s ease;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .todo-item {
-  padding: 0 1rem;
-  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fdfcdc;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 0 var(--border-color);
+  transition: transform 0.1s ease;
 }
 
-/* Botones de las Tareas Centrados */
-.trash-btn, .complete-btn {
-  color: white;
+.todo-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+}
+
+.todo-item:nth-child(5n + 1)::before { background-color: var(--pastel-orange); }
+.todo-item:nth-child(5n + 2)::before { background-color: var(--pastel-purple); }
+.todo-item:nth-child(5n + 3)::before { background-color: var(--pastel-pink); }
+.todo-item:nth-child(5n + 4)::before { background-color: var(--pastel-yellow); }
+.todo-item:nth-child(5n + 5)::before { background-color: var(--pastel-blue); }
+
+/* FUERZA EL COLOR OSCURO EN CUALQUIER TEXTO DENTRO DE LA TAREA */
+.todo-item, 
+.todo-item span, 
+.todo-item p, 
+.todo-item label {
+  color: #2b2d42 !important;
+  font-weight: 600;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-item.completed {
+  opacity: 0.75;
+}
+
+.todo-item.completed span,
+.todo-item.completed p,
+.todo-item.completed label {
+  text-decoration: line-through;
+  color: #475569 !important;
+}
+
+.todo-item div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.todo-item button {
+  background: transparent;
   border: none;
   cursor: pointer;
+  font-size: 1.1rem;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.todo-item button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
   font-size: 1rem;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  height: 3rem;
-}
-
-.complete-btn {
-  background: rgb(73, 204, 73);
-}
-
-.trash-btn {
-  background: #ff6f47;
-}
-
-.complete-btn:hover, .trash-btn:hover {
-  opacity: 0.8;
+  padding: 30px 0;
+  font-style: italic;
+  font-weight: 500;
 }
