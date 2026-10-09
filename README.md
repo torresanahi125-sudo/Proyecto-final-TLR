@@ -1,16 +1,7 @@
-# React + Vite
+Nombre del proyecto: Proyecto-final-TLR / Gestor de Tareas Académico.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Descripción breve: Una aplicación web desarrollada en React y Vite con diseño de planificador personal para la gestión eficiente de tareas diarias.
 
-Currently, two official plugins are available:
+Tecnologías utilizadas: React, Vite, CSS Modules / Estilos personalizados, LocalStorage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Instrucciones de instalación y ejecución local (por ejemplo, npm install y npm run dev).
