@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 import './App.css'; // <- Asegurate de que esta línea esté ACÁ

@@ -1,11 +1,11 @@
-import React from 'react';
+import { FaPlus } from 'react-icons/fa';
 
 export default function Form() {
   return (
     <form className="todo-form">
-      {/* Input para ingresar tareas con su ícono */}
+      {/* Contenedor del campo de texto con su ícono */}
       <div className="input-container">
-        <i className="fa-solid fa-pen-to-square input-icon"></i>
+        <FaPlus className="input-icon" />
         <input type="text" placeholder="Ingresar nueva tarea..." />
       </div>
 
@@ -14,9 +14,8 @@ export default function Form() {
         Agregar
       </button>
 
-      {/* Selector de filtrado con su ícono */}
+      {/* Selector de filtrado con clases nativas */}
       <div className="select-container">
-        <i className="fa-solid fa-filter select-icon"></i>
         <select name="todos" className="filter-todo">
           <option value="all">Todas</option>
           <option value="completed">Completadas</option>

@@ -1,4 +1,5 @@
-/* Estilos Generales */
+
+/* Estilos Generales y Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,55 +8,55 @@
 
 body {
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
   color: #333;
   min-height: 100vh;
 }
 
 header {
-  font-size: 1.5rem;
-  transition: all 0.5s ease;
-}
-
-header, form {
   min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 h1 {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  font-size: 2.5rem;
 }
 
 /* Formulario Principal */
 form {
-  flex-direction: row;
   min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-form input, form button, .filter-todo {
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  border: none;
-  background: white;
-  outline: none;
-}
-
-.input-container, .select-container {
+.input-container {
   display: flex;
   align-items: center;
   background: white;
-  padding: 0 10px;
+  padding: 0 12px;
   border-radius: 5px 0 0 5px;
+  height: 2.5rem;
 }
 
-.input-container i, .select-container i {
+.input-icon {
   color: #fda085;
-  margin-right: 8px;
+  font-size: 1rem;
+}
+
+form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  background: white;
+  outline: none;
+  width: 15rem;
+  color: #333333 !important; /* CORRECCIÓN: Fuerza el texto escrito a color oscuro */
 }
 
 form button {
@@ -66,6 +67,10 @@ form button {
   border-radius: 0 5px 5px 0;
   margin-right: 1.5rem;
   font-weight: bold;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: none;
+  font-size: 1rem;
 }
 
 form button:hover {
@@ -75,12 +80,28 @@ form button:hover {
 
 /* Contenedor del Selector */
 .select-container {
+  display: flex;
+  align-items: center;
+  background: white;
   border-radius: 5px;
+  height: 2.5rem;
 }
 
 .filter-todo {
   cursor: pointer;
   width: 10rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #333333 !important; /* CORRECCIÓN: Fuerza el texto del selector a color oscuro */
+}
+
+/* CORRECCIÓN: Fuerza a que las opciones del menú desplegable se lean siempre oscuras */
+.filter-todo option {
+  color: #333333 !important;
+  background-color: white !important;
 }
 
 /* Contenedor de la Lista */
@@ -107,22 +128,26 @@ form button:hover {
   transition: all 0.5s ease;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .todo-item {
-  padding: 0rem 0.5rem;
+  padding: 0 1rem;
   flex: 1;
 }
 
-/* Botones de las Tareas */
+/* Botones de las Tareas Centrados */
 .trash-btn, .complete-btn {
-  background: #ff6f47;
   color: white;
   border: none;
-  padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
 }
 
 .complete-btn {
@@ -130,7 +155,7 @@ form button:hover {
 }
 
 .trash-btn {
-  border-radius: 0 5px 5px 0;
+  background: #ff6f47;
 }
 
 .complete-btn:hover, .trash-btn:hover {
