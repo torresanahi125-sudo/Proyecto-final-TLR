@@ -1,15 +1,22 @@
-
 import Todo from './Todo';
 
-export default function TodoList() {
+function TodoList({ todos, toggleComplete, deleteTodo }) {
+  if (todos.length === 0) {
+    return <p className="empty-message">No hay tareas pendientes.</p>;
+  }
+
   return (
-    <div className="todo-container">
-      <ul className="todo-list">
-        <Todo />
-        <Todo />
-      </ul>
+    <div className="todo-list">
+      {todos.map((todo) => (
+        <Todo
+          key={todo.id}
+          todo={todo}
+          toggleComplete={toggleComplete}
+          deleteTodo={deleteTodo}
+        />
+      ))}
     </div>
   );
 }
 
-
+export default TodoList;

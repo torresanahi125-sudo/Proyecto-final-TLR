@@ -1,20 +1,27 @@
-import { FaCheck, FaTrash } from 'react-icons/fa';
-
-export default function Todo() {
+function Todo({ todo, toggleComplete, deleteTodo }) {
   return (
-    <div className="todo">
-      {/* Texto fijo de la maqueta */}
-      <li className="todo-item">Tarea de ejemplo</li>
+    <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+      <span
+        style={{
+          textDecoration: todo.completed ? 'line-through' : 'none',
+          color: todo.completed ? '#888' : '#ffffff',
+          flexGrow: 1,
+          cursor: 'pointer'
+        }}
+        onClick={() => toggleComplete(todo.id)}
+      >
+        {todo.text}
+      </span>
 
-      {/* Botón de completar con el ícono del check */}
-      <button className="complete-btn">
-        <FaCheck />
+      <button onClick={() => toggleComplete(todo.id)} aria-label="Marcar completada">
+        {todo.completed ? '↩️' : '✅'}
       </button>
 
-      {/* Botón de eliminar con el ícono del tacho */}
-      <button className="trash-btn">
-        <FaTrash />
+      <button onClick={() => deleteTodo(todo.id)} aria-label="Eliminar tarea">
+        🗑️
       </button>
     </div>
   );
 }
+
+export default Todo;

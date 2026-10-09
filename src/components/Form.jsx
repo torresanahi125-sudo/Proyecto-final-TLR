@@ -1,27 +1,28 @@
-import { FaPlus } from 'react-icons/fa';
+import { useState } from 'react';
 
-export default function Form() {
+function Form({ addTodo }) {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    addTodo(input);
+    setInput('');
+  };
+
   return (
-    <form className="todo-form">
-      {/* Contenedor del campo de texto con su ícono */}
-      <div className="input-container">
-        <FaPlus className="input-icon" />
-        <input type="text" placeholder="Ingresar nueva tarea..." />
-      </div>
-
-      {/* Botón para generar la tarea */}
-      <button type="submit" className="todo-button">
-        Agregar
+    <form className="todo-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Agregar una nueva tarea..."
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button type="submit" aria-label="Agregar tarea">
+        ➕
       </button>
-
-      {/* Selector de filtrado con clases nativas */}
-      <div className="select-container">
-        <select name="todos" className="filter-todo">
-          <option value="all">Todas</option>
-          <option value="completed">Completadas</option>
-          <option value="uncompleted">Incompletas</option>
-        </select>
-      </div>
     </form>
   );
 }
+
+export default Form;
